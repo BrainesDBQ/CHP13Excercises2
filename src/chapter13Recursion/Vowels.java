@@ -3,6 +3,7 @@ package chapter13Recursion;
 public class Vowels {
 	 public static int count_Vowels(String strVowel)
 	    {
+		 //Counts Vowels and checks if there is any of the letters in the string
 	        int VowelCount = 0;
 	        for (int i = 0; i < strVowel.length(); i++)
 	        {

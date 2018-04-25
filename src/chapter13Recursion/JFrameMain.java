@@ -23,6 +23,7 @@ public class JFrameMain extends JFrame {
 	private JTextField textFieldInput;
 	private JTextField textFieldEx1;
 	private JTextField textFieldVowels;
+	private JTextField textFieldpal;
 
 	/**
 	 * Launch the application.
@@ -116,13 +117,15 @@ public class JFrameMain extends JFrame {
 			}
 		});
 		
-		//me Triangles
+		//me Vowels checks each letter and counts the vowels
 		button.setFont(new Font("Tahoma", Font.PLAIN, 26));
 		button.setBounds(245, 101, 176, 56);
 		contentPane.add(button);
 		
 		JButton btnVowels = new JButton("Vowels");
 		btnVowels.setFont(new Font("Tahoma", Font.PLAIN, 26));
+		//Button being used
+		
 		btnVowels.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				String strVowel = textFieldVowels.getText();
@@ -142,5 +145,73 @@ public class JFrameMain extends JFrame {
 		textFieldVowels.setColumns(10);
 		textFieldVowels.setBounds(23, 171, 198, 56);
 		contentPane.add(textFieldVowels);
+		
+		textFieldpal = new JTextField();
+		textFieldpal.setText("FirstWord");
+		textFieldpal.setHorizontalAlignment(SwingConstants.CENTER);
+		textFieldpal.setFont(new Font("Tahoma", Font.PLAIN, 26));
+		textFieldpal.setColumns(10);
+		textFieldpal.setBounds(23, 238, 198, 56);
+		contentPane.add(textFieldpal);
+		
+		JButton btnPal = new JButton("Palindrome");
+		btnPal.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				
+				String Pal = textFieldpal.getText();
+				int lengthPal  = Pal.length();
+			    int iPal;
+			    int beginPal; 
+			    int endPal; 
+			    int middlePal;
+			 
+			    beginPal  = 0;
+			    endPal    = lengthPal - 1;
+			    middlePal = (beginPal + endPal)/2;
+			 
+			    for (iPal = beginPal; iPal <= middlePal; iPal++) {
+			      if (Pal.charAt(beginPal) == Pal.charAt(endPal)) {
+			        beginPal++;
+			        endPal--;
+			      }
+			      else {
+			        break;
+			      }
+			    }
+			    if (iPal == middlePal + 1) {
+			    	textFieldpal.setText("Palindrome");
+			    }
+			    else {
+			    	textFieldpal.setText("Not");
+			      
+			    }
+			   
+			    
+			    
+			    /*	 String revPal = textFieldpal2.getText();
+				 String orgPal = textFieldpal.getText();
+				 int Pallength = orgPal.length();
+				  
+				 for ( int i = Pallength - 1; i >= 0; i-- )
+				         revPal = revPal + orgPal.charAt(i);
+				 
+				      if (orgPal.equals(revPal))
+				    	  textFieldpal.setText("True");
+				      else
+				    	  textFieldpal.setText("False");
+				    	  Original Test code
+				    	  */ 
+			      
+			      
+				      
+					
+				 
+			      
+			}
+		});
+		btnPal.setFont(new Font("Tahoma", Font.PLAIN, 26));
+		btnPal.setBounds(245, 246, 176, 48);
+		contentPane.add(btnPal);
 	}
 }
