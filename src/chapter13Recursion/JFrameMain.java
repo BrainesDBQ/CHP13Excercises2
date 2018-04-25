@@ -18,10 +18,11 @@ import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 
 public class JFrameMain extends JFrame {
-
+	int level = 8;
 	private JPanel contentPane;
 	private JTextField textFieldInput;
 	private JTextField textFieldEx1;
+	private JTextField textFieldVowels;
 
 	/**
 	 * Launch the application.
@@ -53,7 +54,6 @@ public class JFrameMain extends JFrame {
 		
 		textFieldInput = new JTextField();
 		textFieldInput.setHorizontalAlignment(SwingConstants.CENTER);
-		textFieldInput.setText("5");
 		textFieldInput.setFont(new Font("Tahoma", Font.PLAIN, 26));
 		textFieldInput.setBounds(23, 11, 198, 56);
 		contentPane.add(textFieldInput);
@@ -89,7 +89,6 @@ public class JFrameMain extends JFrame {
 		contentPane.add(btnFactorial);
 		
 		textFieldEx1 = new JTextField();
-		textFieldEx1.setText("5");
 		textFieldEx1.setHorizontalAlignment(SwingConstants.CENTER);
 		textFieldEx1.setFont(new Font("Tahoma", Font.PLAIN, 26));
 		textFieldEx1.setColumns(10);
@@ -116,8 +115,32 @@ public class JFrameMain extends JFrame {
 				txtAnswer13_1.append("\n\n" + sPattern);
 			}
 		});
+		
+		//me Triangles
 		button.setFont(new Font("Tahoma", Font.PLAIN, 26));
 		button.setBounds(245, 101, 176, 56);
 		contentPane.add(button);
+		
+		JButton btnVowels = new JButton("Vowels");
+		btnVowels.setFont(new Font("Tahoma", Font.PLAIN, 26));
+		btnVowels.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				String strVowel = textFieldVowels.getText();
+				strVowel.toLowerCase();
+				int VowelCount = Vowels.count_Vowels(strVowel);			
+				textFieldVowels.setText("\n\n" + VowelCount);
+				
+				
+			}
+		});
+		btnVowels.setBounds(245, 174, 176, 48);
+		contentPane.add(btnVowels);
+		
+		textFieldVowels = new JTextField();
+		textFieldVowels.setHorizontalAlignment(SwingConstants.CENTER);
+		textFieldVowels.setFont(new Font("Tahoma", Font.PLAIN, 26));
+		textFieldVowels.setColumns(10);
+		textFieldVowels.setBounds(23, 171, 198, 56);
+		contentPane.add(textFieldVowels);
 	}
 }
