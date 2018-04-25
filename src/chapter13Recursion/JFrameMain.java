@@ -1,3 +1,12 @@
+/* 
+ * Brandon Raines
+ * 2018 - Braines@DBQ.edu
+ * CHp13Excercises
+ * Various Recursion Excercises from the Java Programming book
+ * 
+ */
+
+
 package chapter13Recursion;
 
 import java.awt.BorderLayout;
